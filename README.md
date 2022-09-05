@@ -3,11 +3,13 @@
 
 <hr>
 #ASSET
+
 .BOOTSTRAP 5 (offline)
 
 
 <hr>
 #BAHASA PROGRAMMAN
+
 .PHP->MVC
 
 .javascript
@@ -19,11 +21,13 @@
 
 <hr>
 #DATABASE
+
 .MySQLI->PDO
 
 
 <hr>
 #DB_INFO
+
 .DB_NAME=> 'sdt_projects_mvc'
 
 .SETUP_DB =>app/config/config.
