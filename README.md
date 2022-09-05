@@ -1,15 +1,21 @@
 #SDT-PROJECTS-MVC
 
 #ASSET
+
 .BOOTSTRAP 5 (offline)
 
 #BAHASA PROGRAMMAN
+
 .PHP->MVC
+
 .javascript
+
 .CSS
+
 .HTML
 
 #DATABASE
+
 .MySQLI->PDO
 
 #DB_INFO
