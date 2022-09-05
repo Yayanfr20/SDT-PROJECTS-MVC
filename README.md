@@ -4,7 +4,7 @@
 <hr>
 #ASSET
 
-.BOOTSTRAP 5 (offline)
+.BOOTSTRAP 5
 
 
 <hr>
