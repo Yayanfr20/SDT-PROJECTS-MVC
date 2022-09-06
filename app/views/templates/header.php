@@ -18,13 +18,71 @@
       color: white;
     }
 
+    .head {
+      height: 500px;
+      align-items: center;
+      background-color: black;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('<?= BASEURL; ?>/img/bg-gif.gif');
+    }
+
     .nav-link:hover {
       color: grey;
+    }
+
+    .dropdown-item {
+      color: white;
+    }
+
+    .dropdown-item:hover {
+      background-color: grey;
+    }
+
+    .mobile {
+      display: none;
+    }
+
+    .wadah-mengetik {
+      font-size: 24px;
+      width: 400px;
+      white-space: nowrap;
+      overflow: hidden;
+      -webkit-animation: ketik 5s steps(50, end);
+      animation: ketik 5s steps(50, end);
+    }
+
+    @keyframes ketik {
+      from {
+        width: 0;
+      }
+    }
+
+    @-webkit-keyframes ketik {
+      from {
+        width: 0;
+      }
+    }
+
+
+    @media screen and (max-width:990px) {
+      .mobile {
+        display: block;
+      }
+
+      .desktop {
+        display: none;
+      }
+
+      .wadah-mengetik {
+        width: 320px;
+      }
+
     }
   </style>
 </head>
 
-<body>
+<body style="background-color: black;">
 
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
@@ -45,10 +103,10 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Version
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Native</a></li>
               <li><a class="dropdown-item" href="#">MVC</a></li>
               <li><a class="dropdown-item" href="#">CI4</a></li>
