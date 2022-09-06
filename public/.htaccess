@@ -1,3 +1,4 @@
+Options -indexes
 Options -Multiviews
 
 RewriteEngine On
