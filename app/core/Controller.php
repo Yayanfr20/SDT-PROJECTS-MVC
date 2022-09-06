@@ -1,11 +1,9 @@
 <?php
-require_once __DIR__ . "/../utils/Helpers.php";
-
 class Controller
 {
 	public function view($view, $data = [])
 	{
-		require_once __DIR__ . '/../views/' . Helpers::parseView($view) .  '.php';
+		require_once __DIR__ . '/../views/' . $view .  '.php';
 	}
 
 
