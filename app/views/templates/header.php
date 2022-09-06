@@ -12,3 +12,6 @@
 </head>
 
 <body>
+  <!-- navbar -->
+
+  <!-- end navbar -->

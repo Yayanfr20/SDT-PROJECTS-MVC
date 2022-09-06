@@ -6,7 +6,6 @@
 
 .BOOTSTRAP 5
 
-
 <hr>
 #BAHASA PROGRAMMAN
 
@@ -18,12 +17,10 @@
 
 .HTML
 
-
 <hr>
 #DATABASE
 
 .MySQLI->PDO
-
 
 <hr>
 #DB_INFO
@@ -46,3 +43,9 @@
 .CONTROLLER => status(ON)
 
 .VIEW => status(ON)
+
+<p>Untuk kontrol phpmyadmin kunjungi link berikut </p>
+https://www.phpmyadmin.co/
+
+<br>
+untuk akun login phpmyadmin hubungi Yanz
