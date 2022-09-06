@@ -1,51 +1,45 @@
 <h1>#SDT-PROJECTS-MVC</h1>
-<hr>
+
+### FRAMEWORK
+- BOOTSTRAP 5
 
 <hr>
-#ASSET
-
-.BOOTSTRAP 5
-
-<hr>
-#BAHASA PROGRAMMAN
-
+### BAHASA PROGRAMMAN
 .PHP->MVC
-
 .javascript
-
 .CSS
-
 .HTML
 
 <hr>
-#DATABASE
-
+### DATABASE
 .MySQLI->PDO
 
 <hr>
-#DB_INFO
+### DB_INFO
 
 .DB_NAME=> 'sdt_projects_mvc'
-
 .SETUP_DB =>app/config/config.
-
 .DB_FILE =>database/
-
 .DB_TABLE =>'table kosong'
 
 <hr>
+### structure folders
+#### controllers
+- app/controllers
+- app/controllers/<controller name> (class)
+
+#### views
+- resources/view
+<hr>
+
+### Helpers
+- app/utils/Helpers.php
+
+<hr>
+
 #INFO_SISTEM_ON
 
 .BOOTSTRAP => status(ON)
-
 .DATABASE => status(ON)'import dulu file nya bos!'
-
 .CONTROLLER => status(ON)
-
 .VIEW => status(ON)
-
-<p>Untuk kontrol phpmyadmin kunjungi link berikut </p>
-https://www.phpmyadmin.co/
-
-<br>
-untuk akun login phpmyadmin hubungi Yanz
