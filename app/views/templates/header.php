@@ -9,6 +9,7 @@
 
   <!-- link css library -->
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= BASEURL; ?>/css/Global.css">
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/Landing.page.css">
 
   <!-- link favicon -->

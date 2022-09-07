@@ -1,0 +1,16 @@
+:root {
+  --skyblue: #00ccff80;
+  --white: #ffffff;
+}
+.form-authenticate {
+  backdrop-filter: blur(2px);
+  color: var(--skyblue);
+}
+
+.form-authenticate input,
+.form-authenticate input:focus
+{
+  border: solid .4px var(--skyblue);
+  background: none;
+  color: var(--white);
+)
