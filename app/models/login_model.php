@@ -6,10 +6,14 @@ class login_model {
    public function __construct() {
       $this -> db = new Database;
    }
-   public function getAuten($data) {
-      $this -> db -> query("SELECT * FROM {$this->tabel} WHERE username=:user && password=:pass");
-      $this -> db -> bind('user', $data['username']);
-      $this -> db -> bind('pass', $data['password']);
-      return $this -> db -> rowCount();
+   public function getAuth($data) {
+      $this -> db -> query("SELECT * FROM {$this->tabel} WHERE username=:user");
+      $this -> db -> bind("user", $data['username']);
+      $data_akun = $this -> db -> single();
+      if (password_verify($data['password'], $data_akun['password'])) {
+         return $this -> db -> rowCount();
+      } else {
+         return false;
+      }
    }
 }

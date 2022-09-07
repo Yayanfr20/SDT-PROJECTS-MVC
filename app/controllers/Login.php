@@ -15,14 +15,18 @@ class Login extends Controller
       $this->view('templates/footer');
    }
    public function autentikasi() {
-      if ($this -> model('login_model')->getAuten($_POST) > 0) {
-         Flasher::setFlash("Berhasil !", "Login", "success");
-         header("Location:".BASEURL."/Login");
-         exit;
+      $user = $_POST['username'];
+      $pass = $_POST['password'];
+      $data = [
+         "username" => $user,
+         "password" => $pass
+      ];
+      if ($this -> model('login_model')->getAuth($data) > 0) {
+         Flasher::setFlash("Berhasil ", " login !", "success");
       } else {
-         Flasher::setFlash("Gagal !", "Login", "danger");
-         header("Location:".BASEURL."/Login");
-         exit;
+         Flasher::setFlash("Gagal ", "Login !", "danger");
       }
+      header("Location:".BASEURL."/Login");
+      exit;
    }
 }

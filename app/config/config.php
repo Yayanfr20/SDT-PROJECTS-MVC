@@ -3,6 +3,8 @@ $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === 0 ? 'https://' : 'h
 $domain = $_SERVER["HTTP_HOST"];
 $path_request = $_SERVER["REQUEST_URI"];
 
+# kalau di deploy hapus /SDT-PROJECTS-MVC 👍😂
+
 $public = "/SDT-PROJECTS-MVC";
 $baseUrl = $protocol.$domain.$public;
 
