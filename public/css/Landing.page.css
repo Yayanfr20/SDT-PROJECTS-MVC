@@ -22,10 +22,6 @@
     background-color: grey;
   }
 
-  .mobile {
-    display: none;
-  }
-
   .wadah-mengetik {
     font-size: 24px;
     width: 400px;
@@ -48,13 +44,6 @@
   }
 
   @media screen and (max-width:990px) {
-    .mobile {
-      display: block;
-    }
-
-    .desktop {
-      display: none;
-    }
 
     .wadah-mengetik {
       width: 320px;
