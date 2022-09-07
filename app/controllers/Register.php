@@ -15,14 +15,18 @@ class Register extends Controller
          "username" => htmlspecialchars($user),
          "password" => password_hash(htmlspecialchars($pass), PASSWORD_DEFAULT)
       ];
-      if ($pass == $cpass) {
-         if ($this -> model("register_model")->getReg($data) > 0) {
-            Flasher::setFlash("Berhasil ", "di daftarkan !", "success");
+      if (strlen($user) != 0 && strlen($pass) != 0) {
+         if ($pass == $cpass) {
+            if ($this -> model("register_model")->getReg($data) > 0) {
+               Flasher::setFlash("Berhasil ", "di daftarkan !", "success");
+            } else {
+               Flasher::setFlash("Gagal ", "di daftarkan !", "danger");
+            }
          } else {
-            Flasher::setFlash("Gagal ", "di daftarkan !", "danger");
+            Flasher::setFlash("Bro 😓", "confirm password tidak sesuai!", "warning");
          }
       } else {
-         Flasher::setFlash("Bro 😓", "confirm password tidak sesuai!", "warning");
+         Flasher::setFlash("Bro 😓", "isi form jangan kosong !", "warning");
       }
       header("Location:".BASEURL."/Register");
       exit;
