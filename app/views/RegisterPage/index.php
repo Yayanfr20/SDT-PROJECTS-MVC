@@ -1,8 +1,9 @@
 <div class="d-flex justify-content-center head" style="background-image: url(<?= BASEURL; ?>/img/bg2-gif.gif);">
 
    <div class="content">
-      <form action="<?=BASEURL; ?>/Register/reg" method="post">
-         <h1 class="text-center" style="color: var(--skyblue)">REGISTRASI</h1>
+      <?Flasher::flash(); ?>
+      <form action="<?=BASEURL; ?>" method="post">
+         <h1 class="text-center" style="color: var(--skyblue)">Registration form</h1>
          <div class="form-authenticate d-flex flex-column gap-2">
             <div class="form-floating mb-2">
                <input autofocus="on" type="text" class="input form-control py-2 px-3" name="username" id="username" placeholder="username">
