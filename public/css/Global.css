@@ -1,6 +1,6 @@
 :root {
-   --skyblue: #00ccff80;
-   /*--skyblue: #1ab3f8;*/
+   /*--skyblue: #00ccff80;*/
+   --skyblue: #1ab3f8;
    --white: #ffffff;
 }
 .form-authenticate {
