@@ -24,7 +24,7 @@ class Login extends Controller
       if ($this -> model('login_model')->getAuth($data) > 0) {
          Flasher::setFlash("Berhasil ", " login !", "success");
       } else {
-         Flasher::setFlash("Gagal ", "Login !", "danger");
+         Flasher::setFlash("Gagal ", "login !", "error");
       }
       header("Location:".BASEURL."/Login");
       exit;

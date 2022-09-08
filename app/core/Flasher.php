@@ -13,12 +13,16 @@ class Flasher
 
    public static function flash() {
       if (isset($_SESSION['flash'])) {
-         echo '
-          <div class="alert alert-'.$_SESSION['flash']['tipe'].' alert-dismissible fade show" role="alert">
-  <strong>'.$_SESSION['flash']['pesan'].'</strong> '.$_SESSION['flash']['aksi'].'.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-            ';
+         #echo "<script> new Alert({$_SESSION['flash']['pesan']},{$_SESSION['flash']['aksi']},{$_SESSION['flash']['tipe']}).getAlert();</script>";
+         echo "<script> Swal.fire({
+         position:'center',
+         icon: '".$_SESSION['flash']['tipe']."',
+         title: '".$_SESSION['flash']['pesan']."".$_SESSION['flash']['aksi']."',
+         showConfirmButton: false,
+         timer: 1500
+      });
+      </script>";
+
          unset($_SESSION['flash']);
       }
    }

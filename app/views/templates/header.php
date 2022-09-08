@@ -14,6 +14,8 @@
 
    <!-- link favicon -->
    <link rel="shortcut icon" href="<?= BASEURL; ?>/img/SDT.png" type="images/x-icon">
+   
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body style="background-color: black;">

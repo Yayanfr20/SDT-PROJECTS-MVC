@@ -1,7 +1,6 @@
 <div class="d-flex justify-content-center head" style="background-image: url(<?= BASEURL; ?>/img/bg2-gif.gif);">
 
    <div class="content">
-      <?Flasher::flash(); ?>
       <form action="<?=BASEURL; ?>/Login/autentikasi" method="post">
          <h1 class="text-center" style="color: var(--skyblue)">LOGIN</h1>
          <div class="form-authenticate d-flex flex-column gap-2">

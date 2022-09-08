@@ -20,13 +20,13 @@ class Register extends Controller
             if ($this -> model("register_model")->getReg($data) > 0) {
                Flasher::setFlash("Berhasil ", "di daftarkan !", "success");
             } else {
-               Flasher::setFlash("Gagal ", "di daftarkan !", "danger");
+               Flasher::setFlash("Gagal ", "di daftarkan !", "error");
             }
          } else {
-            Flasher::setFlash("Bro 😓", "confirm password tidak sesuai!", "warning");
+            Flasher::setFlash("Bro 😓", "password tidak sesuai!", "warning");
          }
       } else {
-         Flasher::setFlash("Bro 😓", "isi form jangan kosong !", "warning");
+         Flasher::setFlash("Bro 😓", "jangan kosong !", "warning");
       }
       header("Location:".BASEURL."/Register");
       exit;
