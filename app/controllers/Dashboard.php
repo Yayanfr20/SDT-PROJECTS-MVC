@@ -3,6 +3,7 @@ class Dashboard extends Controller
 {
    public function index() {
       $id = $this -> model("account_model")->getId($_SESSION['ryuxd']['id']);
+      
       if (isset($_SESSION['ryuxd'])) {
          if ($_SESSION['ryuxd']['id'] != $id) {
             header("Location:".BASEURL."/Login");
@@ -12,6 +13,7 @@ class Dashboard extends Controller
          header("Location:".BASEURL."/Login");
          exit;
       }
+      
       $data['judul'] = 'Dashboard';
       $this->view('Dashboard/layout/header', $data);
       $this->view('Dashboard/index');
