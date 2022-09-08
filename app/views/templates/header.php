@@ -14,8 +14,19 @@
 
    <!-- link favicon -->
    <link rel="shortcut icon" href="<?= BASEURL; ?>/img/SDT.png" type="images/x-icon">
-   
+
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
+   
+   <!-- internall style sweet alert bg 😂 -->
+   <style>
+      .swal2-container .swal2-modal {
+         background: rgba(0,0,0,0.4);
+         color: white;
+         border: 1.5px solid #00ccff;
+      }
+   </style>
+   
 </head>
 
 <body style="background-color: black;">
