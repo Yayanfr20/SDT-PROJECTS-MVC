@@ -1,4 +1,4 @@
- <div class="bg-sidenav"></div>
+ <div class="bg-sidenav d-lg-none"></div>
  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidenav">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <span class="fs-5">

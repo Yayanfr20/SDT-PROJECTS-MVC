@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top">
+<nav class="navbar fixed-top d-lg-none">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       SDT Projects

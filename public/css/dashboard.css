@@ -21,10 +21,10 @@ main {
   overflow-y: hidden;
 }
 
-#container {
-  min-height: 100vh;
-  margin: 20% 0;
+#container .content {
+  height: 200vh;
 }
+
 #container.hide {
   animation: 1s sidenavHide linear;
   transform: translateX(-200%);
@@ -39,6 +39,7 @@ main {
   z-index: 1 !important;
   background-color: rgba(255, 255, 255, .80);
   backdrop-filter: blur(.5px);
+  top: 0;
 }
 
 .fa, .bi {
@@ -113,7 +114,7 @@ main {
   background-color: rgba(0, 0, 0, .80);
   backdrop-filter: blur(3px);
   transform: translateX(-200%);
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
   right: 0;
@@ -127,23 +128,7 @@ main {
   animation: sidenavHide 1s linear;
   transform: translateX(-200%);
 }
-.sidenav {
-  width: 60%;
-  height: 100vh;
-  position: fixed;
-  transform: translateX(-200%);
-  z-index: 2 !important;
-  top: 0;
-}
 
-.sidenav.show {
-  animation: sidenavShow 1s linear;
-  transform: translateX(0%);
-}
-.sidenav.hide {
-  animation: sidenavHide 1s linear;
-  transform: translateX(-200%);
-}
 
 @keyframes sidenavShow {
   from {
@@ -159,5 +144,80 @@ main {
   }
   to {
     transform: translateX(-200%);
+  }
+}
+
+/* mobile */
+@media (max-width: 575.95px) {
+  #container {
+    margin: 5% 0;
+  }
+  .sidenav {
+    width: 60%;
+    height: 100vh;
+    position: fixed;
+    transform: translateX(-200%);
+    z-index: 4 !important;
+    top: 0;
+    left: 0;
+  }
+  
+  .sidenav.show {
+    animation: sidenavShow 1s linear;
+    transform: translateX(0%);
+  }
+  .sidenav.hide {
+    animation: sidenavHide 1s linear;
+    transform: translateX(-200%);
+  }
+}
+
+/* tablet */
+@media (min-width: 576px) {
+  #container {
+    margin: 10% 0;
+  }
+  .sidenav {
+    width: 60%;
+    height: 100vh;
+    position: fixed;
+    transform: translateX(-200%);
+    z-index: 4 !important;
+    top: 0;
+    left: 0;
+  }
+  
+  .sidenav.show {
+    animation: sidenavShow 1s linear;
+    transform: translateX(0%);
+  }
+  .sidenav.hide {
+    animation: sidenavHide 1s linear;
+    transform: translateX(-200%);
+  }
+}
+/* desktop */
+@media (min-width: 992px) {
+  body {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  
+  #container {
+    margin: 0;
+    max-height: 100vh;
+    overflow-y: scroll;
+  }
+  
+  #container .content {
+    width: 100% !important;
+  }
+  .sidenav {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 2 !important;
+    transform: translateX(0%);
+    top: 0;
   }
 }
