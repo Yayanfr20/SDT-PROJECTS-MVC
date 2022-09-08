@@ -1,0 +1,163 @@
+::root {
+  --white: #ffffff80;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+main {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  height: -webkit-fill-available;
+  max-height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#container {
+  min-height: 100vh;
+  margin: 20% 0;
+}
+#container.hide {
+  animation: 1s sidenavHide linear;
+  transform: translateX(-200%);
+}
+
+#container.show {
+  animation: 1s sidenavHide linear;
+  transform: translateX(0%);
+}
+
+.navbar {
+  z-index: 1 !important;
+  background-color: rgba(255, 255, 255, .80);
+  backdrop-filter: blur(.5px);
+}
+
+.fa, .bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+.nav-link {
+  text-transform: capitalize;
+}
+.nav-link:hover {
+  background-color: rgba(0, 0, 0, .65);
+}
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold { font-weight: 600; }
+.lh-tight { line-height: 1.25; }
+
+.bg-sidenav {
+  position: fixed;
+  background-color: rgba(0, 0, 0, .80);
+  backdrop-filter: blur(3px);
+  transform: translateX(-200%);
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.bg-sidenav.show {
+  animation: sidenavShow 1s linear;
+  transform: translateX(0%);
+}
+.bg-sidenav.hide {
+  animation: sidenavHide 1s linear;
+  transform: translateX(-200%);
+}
+.sidenav {
+  width: 60%;
+  height: 100vh;
+  position: fixed;
+  transform: translateX(-200%);
+  z-index: 2 !important;
+  top: 0;
+}
+
+.sidenav.show {
+  animation: sidenavShow 1s linear;
+  transform: translateX(0%);
+}
+.sidenav.hide {
+  animation: sidenavHide 1s linear;
+  transform: translateX(-200%);
+}
+
+@keyframes sidenavShow {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes sidenavHide {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}

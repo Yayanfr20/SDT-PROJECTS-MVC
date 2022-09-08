@@ -7,11 +7,16 @@
   <title><?= $data["judul"]; ?></title>
   <!-- link css library -->
    <link rel="stylesheet" href="<?= BASEURL; ?>/css/bootstrap.min.css">
+   <link rel="stylesheet" href="<?= BASEURL; ?>/css/dashboard.css">
+   
    <link rel="stylesheet" href="<?= BASEURL; ?>/css/Global.css">
    
     <!-- link favicon -->
    <link rel="shortcut icon" href="<?= BASEURL; ?>/img/SDT.png" type="images/x-icon">
    
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <!-- sweet alert -->
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
