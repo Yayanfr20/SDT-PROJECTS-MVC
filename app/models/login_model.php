@@ -11,9 +11,17 @@ class login_model {
       $this -> db -> bind("user", $data['username']);
       $data_akun = $this -> db -> single();
       if (password_verify($data['password'], $data_akun['password'])) {
+         $this -> makeCokie($data_akun['id']);
          return $this -> db -> rowCount() > 0 ? true : false;
       } else {
          return false;
       }
+   }
+   public function makeCokie($id) {
+      $_SESSION['ryuxd'] = [
+         "id" => $id,
+         "ip" => $_SERVER['HTTP_CLIENT_IP'],
+         "user-agent" => $_SERVER['HTTP_USER_AGENT']
+      ];
    }
 }
