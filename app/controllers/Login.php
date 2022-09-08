@@ -1,7 +1,12 @@
 <?php
+
 class Login extends Controller
 {
    public function index() {
+      if ($this->auth()->check()) {
+        header("Location:".BASEURL."/Dashboard");
+        exit;
+      }
       $data['judul'] = 'login page';
       $this->view('templates/header', $data);
       $this->view('LoginPage/index');
@@ -21,8 +26,12 @@ class Login extends Controller
          "username" => $user,
          "password" => $pass
       ];
-      if ($this -> model('login_model')->getAuth($data) > 0) {
+      
+      if ($this -> model('login_model')->getAuth($data)) {
+         /* login success */
+         $_SESSION["username"] = $user;
          Flasher::setFlash("Berhasil ", " login !", "success");
+         
       } else {
          Flasher::setFlash("Gagal ", "login !", "error");
       }

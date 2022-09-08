@@ -11,7 +11,7 @@ class login_model {
       $this -> db -> bind("user", $data['username']);
       $data_akun = $this -> db -> single();
       if (password_verify($data['password'], $data_akun['password'])) {
-         return $this -> db -> rowCount();
+         return $this -> db -> rowCount() > 0 ? true : false;
       } else {
          return false;
       }
