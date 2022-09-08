@@ -2,7 +2,7 @@
 
    <div class="content">
       <?Flasher::flash(); ?>
-      <form action="<?=BASEURL; ?>" method="post">
+      <form action="<?=BASEURL;?>/Register/reg" method="post">
          <h1 class="text-center" style="color: var(--skyblue)">Registration form</h1>
          <div class="form-authenticate d-flex flex-column gap-2">
             <div class="form-floating mb-2">
