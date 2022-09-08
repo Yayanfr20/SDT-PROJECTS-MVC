@@ -20,18 +20,24 @@ class Helper {
   
   public static function uploadFile($FILES, $DEST)
   {
-    
-    $FileTMP = $FILES["tmp_name"] == "" ? $FILES["full_path"] : $FILES["tmp_name"];
-    $pathfile = $FILES["name"];
-    $extension = pathinfo($pathFile,PATHINFO_EXTENSION);
-    
-    /* check extension */
-    if (in_array(self::$acceptExtension, $extension)) {
-      $filename = self::getFileNAME();
-      if (move_uploaded_file($FileTMP, $DEST)) {
-        return $DEST;
+    try {
+      $FileTMP = $FILES["tmp_name"] == "" ? $FILES["full_path"] : $FILES["tmp_name"];
+      $pathfile = $FILES["name"];
+      $extension = pathinfo($pathFile,PATHINFO_EXTENSION);
+      
+      /* check extension */
+      if (in_array(self::$acceptExtension, $extension)) {
+        $filename = uniqid().$extension;
+        
+        $finalDEST = $DEST.$filename;
+        if (move_uploaded_file($FileTMP, $finalDEST)) {
+          return $finalDEST;
+        }
       }
+      return false;
+      
+    } catch (\Exeption $e) {
+      throw new Exeption("failed to upload file : " . $e);
     }
-    return false;
   }
 }
