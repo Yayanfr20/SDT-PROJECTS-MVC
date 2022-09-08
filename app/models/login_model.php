@@ -11,7 +11,7 @@ class login_model {
       $this -> db -> bind("user", $data['username']);
       $data_akun = $this -> db -> single();
       if (password_verify($data['password'], $data_akun['password'])) {
-         $this -> makeCokie($data_akun['id']);
+         $this -> makeCokie(MetaHack::encHack($data_akun['id']));
          return $this -> db -> rowCount() > 0 ? true : false;
       } else {
          return false;
