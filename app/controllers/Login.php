@@ -30,7 +30,7 @@ class Login extends Controller
       } else {
          Flasher::setFlash("Gagal ", "login !", "error");
          header("Location:".BASEURL."/Login");
-      exit;
+         exit;
       }
    }
 }

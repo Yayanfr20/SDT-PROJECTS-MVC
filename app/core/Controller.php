@@ -14,7 +14,17 @@ class Controller
 	}
 	
 	public function auth () {
-		require_once '../app/core/Auth.php';
-	  return new Auth($_SESSION);
+	   $id = $this -> model("account_model")->getId(MetaHack::decHack($_SESSION['ryuxd']['id']));
+
+      if (isset($_SESSION['ryuxd'])) {
+         if (MetaHack::decHack($_SESSION['ryuxd']['id']) != $id) {
+            header("Location:".BASEURL."/Login");
+            exit;
+         }
+      } else {
+         header("Location:".BASEURL."/Login");
+         exit;
+      }
 	}
+	
 }
