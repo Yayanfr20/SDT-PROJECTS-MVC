@@ -1,8 +1,9 @@
 <?php
 class Controller
 {
-	public function view($view, $data = [])
+	public function view($view, $data = ["default" => null])
 	{
+	  extract($data, EXTR_OVERWRITE);
   	require_once __DIR__ . '/../views/' . $view .  '.php';
 	}
 
@@ -14,17 +15,9 @@ class Controller
 	}
 	
 	public function auth () {
-	   $id = $this -> model("account_model")->getId(MetaHack::decHack($_SESSION['ryuxd']['id']));
-
-      if (isset($_SESSION['ryuxd'])) {
-         if (MetaHack::decHack($_SESSION['ryuxd']['id']) != $id) {
-            header("Location:".BASEURL."/Login");
-            exit;
-         }
-      } else {
-         header("Location:".BASEURL."/Login");
-         exit;
-      }
+	   $id = $this->model("account_model")->getId(MetaHack::decHack($_SESSION['ryuxd']['id']));
+	   $data = $this->model("account_model")->getInfo(MetaHack::decHack($_SESSION['ryuxd']['id']));
+	   return new Auth($id, $data);
 	}
 	
 }
