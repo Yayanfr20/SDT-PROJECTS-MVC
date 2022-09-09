@@ -3,11 +3,10 @@ class Dashboard extends Controller
 {
    public function index() {
       $this->auth()->check();
-      
       $this->view('Dashboard/layout/header');
       $this->view('Dashboard/index', [
-        "judul" => "Dashboard",
-        "user" => $this->auth()->user()
+         "judul" => "Dashboard",
+         "user" => $this->auth()->user()
       ]);
       $this->view('Dashboard/layout/footer');
    }

@@ -8,11 +8,17 @@ class Register extends Controller
       $this->view('templates/footer');
    }
    public function reg() {
-      $user = strtolower($_POST['username']);
+      $user = strtolower($_POST['name']);
       $pass = strtolower($_POST['password']);
+      $email = strtolower($_POST['email']);
       $cpass = strtolower($_POST['confirmPassword']);
+      $randomX = mt_rand(111, 999);
+      $randomY = mt_rand(111, 999);
+      $random = mt_rand($randomX,$randomY);
       $data = [
-         "username" => htmlspecialchars($user),
+         "name" => htmlspecialchars($user),
+         "username" => "{$user}{$random}",
+         "email" => htmlspecialchars($email),
          "password" => password_hash(htmlspecialchars($pass), PASSWORD_DEFAULT)
       ];
       if (strlen($user) != 0 && strlen($pass) != 0) {

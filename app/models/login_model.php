@@ -7,7 +7,7 @@ class login_model {
       $this -> db = new Database;
    }
    public function getAuth($data) {
-      $this -> db -> query("SELECT * FROM {$this->tabel} WHERE username=:user");
+      $this -> db -> query("SELECT * FROM {$this->tabel} WHERE username=:user OR email=:user");
       $this -> db -> bind("user", $data['username']);
       $data_akun = $this -> db -> single();
       if (password_verify($data['password'], $data_akun['password'])) {
