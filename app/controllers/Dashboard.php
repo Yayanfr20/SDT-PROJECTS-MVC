@@ -2,18 +2,7 @@
 class Dashboard extends Controller
 {
    public function index() {
-      $id = $this -> model("account_model")->getId(MetaHack::decHack($_SESSION['ryuxd']['id']));
-
-      if (isset($_SESSION['ryuxd'])) {
-         if (MetaHack::decHack($_SESSION['ryuxd']['id']) != $id) {
-            header("Location:".BASEURL."/Login");
-            exit;
-         }
-      } else {
-         header("Location:".BASEURL."/Login");
-         exit;
-      }
-
+      $this -> auth ();
       $data['judul'] = 'Dashboard';
       $this->view('Dashboard/layout/header', $data);
       $this->view('Dashboard/index');
