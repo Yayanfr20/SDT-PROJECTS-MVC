@@ -8,7 +8,7 @@
       <div id="container" class="px-2 py-1">
         
         <div class="content">
-          hello
+          <?= "hello ". ( $user->name ?? "unknown" ) ." 👋" ?>
         </div>
         
       </div>

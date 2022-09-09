@@ -2,10 +2,13 @@
 class Dashboard extends Controller
 {
    public function index() {
-      $this -> auth ();
-      $data['judul'] = 'Dashboard';
-      $this->view('Dashboard/layout/header', $data);
-      $this->view('Dashboard/index');
+      $this->auth()->check();
+      
+      $this->view('Dashboard/layout/header');
+      $this->view('Dashboard/index', [
+        "judul" => "Dashboard",
+        "user" => $this->auth()->user()
+      ]);
       $this->view('Dashboard/layout/footer');
    }
    public function logout() {

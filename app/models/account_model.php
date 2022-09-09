@@ -3,6 +3,7 @@
 class account_model {
    private $tabel = TB_MLTUSR;
    private $db;
+   
    public function __construct() {
       $this -> db = new Database;
    }

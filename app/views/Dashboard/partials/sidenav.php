@@ -14,7 +14,7 @@
         </a>
       </li>
       <li>
-        <a href="<?=BASEURL;?>/profil" class="nav-link text-white">
+        <a href="<?=BASEURL;?>/profile" class="nav-link text-white">
           <i class="fa fa-user me-2"></i>
           profile
         </a>
@@ -53,15 +53,29 @@
     <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>mdo</strong>
+        <img src="<?= $user->gambar ?? "https://github.com/fiandev.png"; ?>" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong><?= $user->name ?? "unknown" ?></strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li>
+          <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+            <i class="fa fa-user"></i>
+            <?= $user->name ?? "unknown"; ?>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+            <i class="fa fa-file"></i>
+            20 posts
+          </a>
+        </li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="<?=BASEURL?>/Dashboard/logout">Sign out</a></li>
+        <li>
+          <a class="dropdown-item d-flex align-items-center gap-2" href="<?=BASEURL?>/Dashboard/logout">
+            <i class="fa-solid fa-person-walking-arrow-right"></i>
+            Sign out
+          </a>
+        </li>
       </ul>
     </div>
   </div>
