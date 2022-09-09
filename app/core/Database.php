@@ -11,7 +11,7 @@ class Database
    
 
    public function __construct() {
-      $this->except = $except_col;
+      
       $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
 
       $option = [

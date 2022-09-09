@@ -4,7 +4,7 @@ class Controller
 	public function view($view, $data = ["default" => null])
 	{
 	  extract($data, EXTR_OVERWRITE);
-  	require_once __DIR__ . '/../views/' . $view .  '.php';
+  	  require_once __DIR__ . '/../views/' . $view .  '.php';
 	}
 
 
@@ -20,4 +20,5 @@ class Controller
 	   return new Auth($id, $data);
 	}
 	
+
 }
