@@ -10,7 +10,8 @@
             <div class="content">
               <div class="row">
                 <div class="col">
-                  <form class="mb-3" action="" method="post" enctype="multipart/form-data">
+                  <form class="mb-3" action="<?=BASEURL;?>/profile/editData" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name='id' value="<?=$user['id'];?>" >
                       <div class="mb-3">
                         <label for="gambar" class="form-label pp-change">
                           <img data-src="<?= $user["gambar"] ? url("/images/".$user["gambar"]) : "https://github.com/fiandev.png"; ?>" class="photo" src="<?= $user["gambar"] ? url("/images/".$user["gambar"]) : "https://github.com/fiandev.png"; ?>" alt="">
@@ -26,15 +27,15 @@
                       </div>
                       <div class="mb-3">
                         <label for="address" class="form-label">
-                          alamat <b><?= $user["address"] ? "" : "*default"; ?></b>
+                          alamat <b><?= $user["alamat"] ? "" : "*default"; ?></b>
                         </label>
-                        <input value="<?= $user["address"] ?? ""; ?>" type="text" class="form-control" id="address" name="address">
+                        <input value="<?= $user["alamat"] ?? ""; ?>" type="text" class="form-control" id="address" name="address">
                       </div>
                       <div class="mb-3">
                         <label for="birthdate" class="form-label">
-                         tanggal lahir <b><?= $user["birthdate"] ? "" : "*default"; ?></b>
+                         tanggal lahir <b><?= $user["tanggal_lahir"] ? "" : "*default"; ?></b>
                         </label>
-                        <input value="<?= $user["birthdate"] ?? date('Y-m-d'); ?>" type="date" class="form-control" id="birthdate" name="birthdate">
+                        <input value="<?= $user["tanggal_lahir"] ?? date('Y-m-d'); ?>" type="date" class="form-control" id="birthdate" name="birthdate">
                       </div>
                       <button type="submit" class="btn btn-primary">
                         update

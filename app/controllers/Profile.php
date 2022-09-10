@@ -14,8 +14,9 @@ class Profile extends Controller {
    }
    
    public function edit() {
-      $this->auth()->check();
       
+      $this->auth()->check();
+      $user = $this->auth()->user();
       $this -> view("Dashboard/layout/header");
       $this -> view("Dashboard/Profile/edit", [
         "judul" => "profile ". ($user->name ?? "unknown"),
@@ -23,5 +24,22 @@ class Profile extends Controller {
       ]);
       $this -> view("Dashboard/layout/footer");
      
+   }
+   public function editData(){
+     $data = [
+       "info" => $_POST,
+       "file" => $_FILES['gambar']
+      ];
+      Helper::uploadFile($data['file'],'assets');
+      /*
+     if($this -> model('account_model')->getEdit($data)>0){
+       Flasher::setFlash("Profile Berhasil ", "Di Update !", "success");
+       header('Location:'.BASEURL.'/profile/edit');
+       exit;
+     }else{
+       Flasher::setFlash("Profile Gagal  ", "Di Update !", "error");
+       header('Location:'.BASEURL.'/profile/edit');
+       exit;
+     }*/
    }
 }
