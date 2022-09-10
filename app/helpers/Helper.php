@@ -27,7 +27,7 @@ class Helper {
       if (in_array(self::$acceptExtension, $extension)) {
         $filename = uniqid().$extension;
         
-        $finalDEST = $DEST.$filename;
+        $finalDEST = __DIR__."/../../public/".$DEST.$filename;
         if (move_uploaded_file($FileTMP, $finalDEST)) {
           return $finalDEST;
         }

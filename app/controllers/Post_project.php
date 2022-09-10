@@ -14,4 +14,9 @@ class Post_project extends Controller {
       ]);
       $this -> view("Dashboard/layout/footer");
    }
+   public function upload(){
+     if($this -> model('postingan_model')->getPost($_POST)>0){
+       
+     }
+   }
 }
