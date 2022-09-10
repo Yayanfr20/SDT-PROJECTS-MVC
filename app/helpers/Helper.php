@@ -1,7 +1,5 @@
 <?php
 
-
-// /images/some.jpg
 class Helper {
   private static $acceptExtension = [
     "jpg",
