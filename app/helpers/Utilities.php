@@ -17,3 +17,7 @@ function route ($path) {
   
   return preg_match($pattern, $url);
 }
+
+function now () {
+  return date("Y-m-d H:i:s");
+}
