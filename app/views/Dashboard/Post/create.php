@@ -47,6 +47,9 @@
                       <button type="submit" class="btn btn-primary">
                         posting
                       </button>
+                      <a href="<?= url('/dashboard'); ?>" type="button" class="btn btn-info">
+                        kembali
+                      </a>
                     </form>
                 </div>
               </div>

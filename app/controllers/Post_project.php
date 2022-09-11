@@ -19,14 +19,12 @@ class Post_project extends Controller {
      method("POST", 401);
      $file = $_FILES["images"];
      $pathfile = Helper::uploadFile ($file, "/assets/static/");
-     if($this -> model('postingan_model')->upload($_POST, $pathfile)>0){
+     if ($this -> model('postingan_model')->upload($_POST, $pathfile)){
        Flasher::setFlash("Berhasil ","Di Upload !","success");
-       header("Location:".BASEURL."/post-project");
-       exit;
-     }else{
+     } else {
        Flasher::setFlash("Gagal ","Di Upload !","error");
-       header("Location:".BASEURL."/post-project");
-       exit;
      }
+     header("Location:".BASEURL."/post-project");
+     exit;
    }
 }

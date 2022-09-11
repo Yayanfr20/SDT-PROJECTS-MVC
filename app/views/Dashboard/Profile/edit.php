@@ -40,6 +40,9 @@
                       <button type="submit" class="btn btn-primary">
                         update
                       </button>
+                      <a href="<?= url('/profile'); ?>" type="button" class="btn btn-info">
+                        kembali
+                      </a>
                     </form>
                 </div>
               </div>

@@ -11,9 +11,9 @@
 
                <div class="row d-flex align-items-center mb-5">
                  <div class="col-12">
-                  <div class="bg-profile" style="background-image: url('<?= $user["gambar"] ?? "https://github.com/ryugen.png"; ?>');">
+                  <div class="bg-profile" style="background-image: url('<?= $user['gambar'] ? url($user['gambar']) : "https://github.com/fiandev.png"; ?>');">
                      <div class="pp-profile">
-                        <img src="<?= $user['gambar'] ?? "https://github.com/fiandev.png"; ?>" alt="" class="avatar">
+                        <img src="<?= $user['gambar'] ? url($user['gambar']) : "https://github.com/fiandev.png"; ?>" alt="" class="avatar">
                      </div>
                   </div>
                  </div>
@@ -31,13 +31,19 @@
                         <li class="list">
                            <i class="fa fa-person"></i>
                            <p>
-                              umur <b>17 tahun</b>
+                              umur <b id="age" data="<?= $user["tanggal_lahir"]; ?>"></b>
                            </p>
                         </li>
                         <li class="list">
                            <i class="fa fa-city"></i>
                            <p>
-                              alamat <b>jongol, bujang city, Jakarta</b>
+                              alamat <b><?= $user["alamat"] ?? "..."; ?></b>
+                           </p>
+                        </li>
+                        <li class="list">
+                           <i class="fa fa-file"></i>
+                           <p>
+                              total posts <b><?= count($posts); ?></b>
                            </p>
                         </li>
                      </ul>
@@ -45,20 +51,20 @@
                </div>
                
                <div class="row">
-                 <?php foreach($postingan as $data): ?>
+                 <?php foreach($posts as $post): ?>
                    <div class="col-12 col-md-6 col-lg-4 mb-2">
                      <div class="post d-flex flex-column">
-                       <h1 class="post-title"><?=$data['title'];?></h1>
-                       <p class="post-category"><?=$data['kategori'];?></p>
-                       <img src="<?=$data['images'];?>" alt="" class="post-thumbnail">
+                       <h1 class="post-title"><?= $post["title"]; ?></h1>
+                       <p class="post-category"><?= $post["kategori"]; ?></p>
+                       <img src="<?= $post["gambar"] ?? 'https://source.unsplash.com/1200x400?'.$post["kategori"]; ?>" alt="" class="post-thumbnail">
                        <p class="post-description">
-                        <?=$data['deskripsi'];?>
+                         <?= $post["deskripsi"]; ?>
                        </p>
                        <div class="actions my-2">
-                         <a href="<?=$data['demo'];?>" class="btn btn-primary">
+                         <a href="<?= $post["demo"]; ?>" class="btn btn-primary">
                            demo
                          </a>
-                         <a href="<?=$data['source'];?>" class="btn btn-info">
+                         <a href="<?= $post["source"]; ?>" class="btn btn-info">
                            source
                          </a>
                        </div>
@@ -72,3 +78,20 @@
       </div>
    </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    let birthdate = $("#age").attr("data")
+    if (birthdate === "") {
+      $("#age").html("null")
+      return false
+    } 
+    let date = new Date(birthdate)
+    let now = new Date()
+    let diff = now - date
+    let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    let years = Math.floor(days / 365.25)
+    
+    $("#age").html(years)
+  })
+</script>
