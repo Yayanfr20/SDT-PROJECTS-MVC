@@ -16,26 +16,29 @@ class Helper {
     return $splited[end($splited)];
   }
   
-  public static function uploadFile($FILES, $DEST)
+  private static function parseDEST($dest)
   {
-    try {
-      $FileTMP = $FILES["tmp_name"] == "" ? $FILES["full_path"] : $FILES["tmp_name"];
-      $pathfile = $FILES["name"];
-      $extension = pathinfo($pathFile,PATHINFO_EXTENSION);
+    $dest = $dest[0] !== "/" ? $dest : substr($dest, 1);
+    return $dest;
+  }
+  
+  public static function uploadFile($FILE, $DEST)
+  {
+    $FileTMP = $FILE["tmp_name"] == "" ? $FILE["full_path"] : $FILE["tmp_name"];
+    
+    $extension = pathinfo($FILE["name"],PATHINFO_EXTENSION);
+    
+    /* check extension */
+    if (in_array($extension, self::$acceptExtension)) {
+      $filename = uniqid().".".$extension;
       
-      /* check extension */
-      if (in_array(self::$acceptExtension, $extension)) {
-        $filename = uniqid().$extension;
-        
-        $finalDEST = __DIR__."/../../public/".$DEST.$filename;
-        if (move_uploaded_file($FileTMP, $finalDEST)) {
-          return $finalDEST;
-        }
+      $finalDEST = self::parseDEST($DEST) . $filename;
+      $relativeFolder = __DIR__."/../../public/";
+      
+      if (move_uploaded_file($FileTMP, $relativeFolder . $finalDEST)) {
+        return $finalDEST;
       }
-      return false;
-      
-    } catch (\Exeption $e) {
-      throw new Exeption("failed to upload file : " . $e);
     }
+    return false;
   }
 }

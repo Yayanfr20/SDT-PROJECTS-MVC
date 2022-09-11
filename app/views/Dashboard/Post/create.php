@@ -10,10 +10,20 @@
             <div class="content">
               <div class="row">
                 <div class="col">
-                  <form class="mb-3" action="" method="post" enctype="multipart/form-data">
+                  <form class="mb-3" action="<?= url('/post-project/upload'); ?>" method="post" enctype="multipart/form-data">
                       <div class="mb-3">
                         <label for="title" class="form-label">judul project</label>
                         <input value="" name="title" type="text" class="form-control" id="title">
+                      </div>
+                      <div class="mb-3">
+                        <label for="kategori" class="form-label">kategori</label>
+                        <select class="form-select" name="kategori" id="kategori">
+                          <?php foreach($categories as $category): ?>
+                            <option value="<?= $category; ?>">
+                              <?= $category; ?>
+                            </option>
+                          <?php endforeach; ?>
+                        </select>
                       </div>
                       <div class="mb-3">
                         <label for="demo" class="form-label">link demo</label>

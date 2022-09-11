@@ -15,7 +15,10 @@ class Post_project extends Controller {
       $this -> view("Dashboard/layout/footer");
    }
    public function upload(){
-     if($this -> model('postingan_model')->getPost($_POST)>0){
+     if (!$_POST || !$_FILES) http_response_code(403);
+     $file = $_FILES["images"];
+     $pathfile = Helper::uploadFile ($file, "/assets/static/");
+     if($this -> model('postingan_model')->upload($_POST, $pathfile)){
        
      }
    }
