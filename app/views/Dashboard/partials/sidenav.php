@@ -44,7 +44,7 @@
          </a>
       </li>
       <li>
-         <a href="#" class="nav-link text-white <?= route('/setting') ? 'active' : ''; ?>">
+         <a href="<?= url('/setting'); ?>" class="nav-link text-white <?= route('/setting') ? 'active' : ''; ?>">
             <i class="fa fa-gear me-2"></i>
             setting
          </a>
