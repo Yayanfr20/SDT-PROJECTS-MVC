@@ -14,7 +14,7 @@
                     <input type="hidden" name='id' value="<?=$user['id'];?>" >
                       <div class="mb-3">
                         <label for="gambar" class="form-label pp-change">
-                          <img data-src="<?= $user["gambar"] ? url("/images/".$user["gambar"]) : "https://github.com/fiandev.png"; ?>" class="photo" src="<?= $user["gambar"] ? url("/images/".$user["gambar"]) : "https://github.com/fiandev.png"; ?>" alt="">
+                          <img data-src="<?= $user["gambar"] ? url("/".$user["gambar"]) : "https://github.com/fiandev.png"; ?>" class="photo" src="<?= $user["gambar"] ? url("/".$user["gambar"]) : "https://github.com/fiandev.png"; ?>" alt="">
                           <span>
                             <i class="fa fa-pencil"></i>
                           </span>

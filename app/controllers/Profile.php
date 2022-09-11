@@ -30,8 +30,6 @@ class Profile extends Controller {
        "info" => $_POST,
        "file" => $_FILES['gambar']
       ];
-      Helper::uploadFile($data['file'],'assets');
-      /*
      if($this -> model('account_model')->getEdit($data)>0){
        Flasher::setFlash("Profile Berhasil ", "Di Update !", "success");
        header('Location:'.BASEURL.'/profile/edit');
@@ -40,6 +38,6 @@ class Profile extends Controller {
        Flasher::setFlash("Profile Gagal  ", "Di Update !", "error");
        header('Location:'.BASEURL.'/profile/edit');
        exit;
-     }*/
+     }
    }
 }
