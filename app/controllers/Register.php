@@ -13,7 +13,7 @@ class Register extends Controller
       $email = strtolower($_POST['email']);
       $cpass = strtolower($_POST['confirmPassword']);
       $randomX = mt_rand(111, 999);
-      $randomY = mt_rand(111, 999);
+      $randomY = mt_rand(1111, 9999);
       $random = mt_rand($randomX,$randomY);
       $data = [
          "name" => htmlspecialchars($user),
