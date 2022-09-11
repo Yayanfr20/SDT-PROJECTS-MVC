@@ -19,6 +19,7 @@ class Register extends Controller
          "name" => htmlspecialchars($user),
          "username" => "{$user}{$random}",
          "email" => htmlspecialchars($email),
+         "create_at" => now(),
          "password" => password_hash(htmlspecialchars($pass), PASSWORD_DEFAULT)
       ];
       if (strlen($user) != 0 && strlen($pass) != 0) {
