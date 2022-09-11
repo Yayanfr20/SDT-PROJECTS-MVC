@@ -11,6 +11,7 @@
               <div class="row">
                 <div class="col">
                   <form class="mb-3" action="<?= url('/post-project/upload'); ?>" method="post" enctype="multipart/form-data">
+                    <input type="hidden" value="<?=$user['name'];?>" name="author">
                       <div class="mb-3">
                         <label for="title" class="form-label">judul project</label>
                         <input value="" name="title" type="text" class="form-control" id="title">

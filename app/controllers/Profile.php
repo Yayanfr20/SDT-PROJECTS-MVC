@@ -4,11 +4,12 @@ class Profile extends Controller {
       $this->auth()->check();
       
       $user = $this->auth()->user();
-      
+      $postingan = $this -> model("postingan_model")->getPost($user['name']);
       $this -> view("Dashboard/layout/header");
       $this -> view("Dashboard/Profile/index", [
         "judul" => "profile ". ($user->name ?? "unknown"),
-        "user" => $user
+        "user" => $user,
+        "postingan" => $postingan
       ]);
       $this -> view("Dashboard/layout/footer");
    }
