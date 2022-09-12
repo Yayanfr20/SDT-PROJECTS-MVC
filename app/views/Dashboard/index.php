@@ -12,6 +12,10 @@
            <?php foreach($posts as $post): ?>
              <div class="col-12 col-md-6 col-lg-4 mb-2">
                <div class="post d-flex flex-column">
+                 <div class="d-flex align-self-start align-items-center gap-2">
+                   <img style="width: 2rem; height:2rem;" src="<?= $user["gambar"] ? url($user["gambar"]) : "https://github.com/fiandev.png"; ?>" alt="Avatar" class="rounded-circle">
+                   <small class=""><?= $user["name"]; ?></small>
+                 </div>
                  <h1 class="post-title"><?= $post["title"]; ?></h1>
                  <p class="post-category"><?= $post["kategori"]; ?></p>
                  <img src="<?= $post["gambar"] ?? 'https://source.unsplash.com/1200x400?'.$post["kategori"]; ?>" alt="" class="post-thumbnail">
@@ -31,7 +35,6 @@
            <?php endforeach; ?>
          </div>
         </div>
-        
       </div>
     </div>
   </div>
