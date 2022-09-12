@@ -12,7 +12,7 @@
           <ul class="d-flex gap-2 setting-menu flex-column align-items-center">
             <li>
               <a class="d-flex justify-content-center align-items-center py-2 rounded" href="<?= url('/profile/change-name'); ?>">
-                change name
+                change username 
               </a>
             </li>
             <li>
