@@ -10,7 +10,7 @@
             <div class="content">
               <div class="row">
                 <div class="col">
-                  <form class="mb-3" action="<?= url('/profile/editData'); ?>" method="post" enctype="multipart/form-data">
+                  <form class="mb-3" action="<?= url('/profile/changePass'); ?>" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                       <label for="newPassword" class="form-label">
                         masukkan password baru

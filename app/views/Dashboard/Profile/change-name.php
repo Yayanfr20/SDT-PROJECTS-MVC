@@ -10,14 +10,14 @@
             <div class="content">
               <div class="row">
                 <div class="col">
-                  <form class="mb-3" action="<?= url('/profile/editData'); ?>" method="post" enctype="multipart/form-data">
+                  <form class="mb-3" action="<?= url('/profile/change'); ?>" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                       <label for="name" class="form-label">
-                        nama baru
+                      username baru
                       </label>
-                      <input pattern="[a-zA-Z]" placeholder="masukkan nama baru .." value="<?= $user["name"]; ?>" type="text" class="form-control" id="name" name="name">
+                      <input placeholder="masukkan username baru .." value="<?= $user["username"]; ?>" type="text" class="form-control" name="username">
                       <div class="invalid-feedback">
-                        nama tidak boleh terdiri dari simbol khusus dan angka
+                        username tidak boleh terdiri dari simbol khusus dan angka
                       </div>
                     </div>
                     <div class="mb-3">

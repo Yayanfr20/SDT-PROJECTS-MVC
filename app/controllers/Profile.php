@@ -27,7 +27,34 @@ class Profile extends Controller {
       $this -> view("Dashboard/layout/footer");
      
    }
-   
+  
+  public function change(){
+    method("POST", 403);
+    $user = $this->auth()->user();
+    if($this -> model('account_model')->getChangeUsername($_POST,$user['id'])>0){
+      Flasher::setFlash("Profile Berhasil ", "Di Update !", "success");
+     }else{
+       Flasher::setFlash("Profile Gagal  ", "Di Update !", "error");
+     }
+     header('Location:'.BASEURL.'/profile/change_name');
+     exit;
+  }
+ 
+ public function changePass(){
+   method("POST", 403);
+    $user = $this->auth()->user();
+    if($_POST['newPassword'] == $_POST["confirmPassword"]){
+    if($this -> model('account_model')->getChangePassword($_POST,$user['id'])>0){
+      Flasher::setFlash("Profile Berhasil ", "Di Update !", "success");
+     }else{
+       Flasher::setFlash("Profile Gagal  ", "Di Update !", "error");
+     }
+    }
+     header('Location:'.BASEURL.'/profile/change_password');
+     exit;
+  }
+ 
+ 
    public function change_name() {
       $this->auth()->check();
       
@@ -41,6 +68,8 @@ class Profile extends Controller {
       ]);
       $this -> view("Dashboard/layout/footer");
    }
+   
+   
    
    public function change_password() {
       $this->auth()->check();
