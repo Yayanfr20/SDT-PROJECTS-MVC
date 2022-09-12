@@ -30,4 +30,9 @@ class account_model {
      return $this -> db -> rowCount();
      #return true;
    }
+   public function getDelete($id){
+     $this -> db -> query("DELETE FROM {$this->tabel} WHERE id=:id");
+     $this -> db -> bind('id',$id);
+     return $this -> db -> rowCount();
+   }
 }

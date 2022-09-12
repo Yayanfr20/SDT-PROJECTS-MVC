@@ -21,7 +21,7 @@
               </a>
             </li>
             <li>
-              <a class="d-flex justify-content-center align-items-center py-2 rounded bg-danger" href="<?= url('/profile/delete'); ?>">
+              <a class="d-flex justify-content-center align-items-center py-2 rounded bg-danger" onclick="new Confirm({judul:'Yakin bro ?',teks:'akun ini akan di hapus',icon:'warning',confirmText:'yep',tujuan:'<?=BASEURL;?>/Setting/delete'}).getConfirm();">
                 delete account
               </a>
             </li>
