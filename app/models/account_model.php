@@ -27,7 +27,7 @@ class account_model {
      $this -> db -> bind('tgl',$data['birthdate']);
      $this -> db -> bind('gm',$gambar);
      $this -> db -> bind('id',$data['id']);
-     return $this -> db -> rowCount();
+     return $this -> db -> rowCount() > 0 ? true : false;
      #return true;
    }
    public function getDelete($id){

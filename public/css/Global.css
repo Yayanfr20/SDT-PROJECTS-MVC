@@ -15,3 +15,17 @@
    background: none;
    color: var(--white);
 }
+
+input.is-invalid {
+  border: solid 2px red !important;
+  animation: 1s goyang linear infinite !important;
+}
+
+@keyframes goyang {
+  from {
+    transform: translateX(10%);
+  }
+  to {
+    transform: translateX(-10%);
+  }
+}

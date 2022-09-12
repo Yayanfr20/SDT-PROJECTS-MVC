@@ -1,8 +1,8 @@
 <?php
 
 /*
- * @param return current url if param null
  * @param $path (string)
+ * @return (string)
 **/
 function url ($path = null) {
   if (!$path) return isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http" . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -12,6 +12,7 @@ function url ($path = null) {
 
 /*
  * @param $path (string) path url
+ * @return (boolean)
 **/
 function route ($path) {
   $path = str_replace("/", "", $path);
@@ -21,13 +22,31 @@ function route ($path) {
   return preg_match($pattern, $url);
 }
 
-function now () {
-  return date("Y-m-d H:i:s");
+/*
+ * @param $option (string)
+ * @return date() with parameter binding
+**/
+function now ($option = "full") {
+  $rules = [
+    "full" => date("Y-m-d H:i:s"),
+    "date" => date("Y-m-d"),
+    "time" => date("H:i:s")
+  ];
+  
+  $flattened = $rules;
+  array_walk($flattened, function(&$value, $key) {
+      $value = $key;
+  });
+  
+  if (gettype($option) !== "string") throw new Exception("argument 1 must be string ". gettype($option) . " given");
+  if (!isset($rules[$option])) throw new Exception("argument 1 must be ". implode(", ", $flattened) . " but '$option' given");
+  
+  return $rules[$option];
 }
 
 /*
  * @param $method (string) method name
- * @param $code (number) http code response
+ * @return $code (number) http code response
 **/
 function method ($method = "GET", $code = 403) {
   $request_method = strtoupper($_SERVER['REQUEST_METHOD']);

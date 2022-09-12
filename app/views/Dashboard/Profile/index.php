@@ -25,19 +25,19 @@
                         <li class="list">
                            <i class="fa fa-clock"></i>
                            <p>
-                              bergabung sejak <b>2022</b>
+                              bergabung sejak <b><?= $user["create_at"] ? $user["create_at"] : now("date"); ?></b>
                            </p>
                         </li>
                         <li class="list">
                            <i class="fa fa-person"></i>
                            <p>
-                              umur <b id="age" data="<?= $user["tanggal_lahir"]; ?>"></b>
+                              umur <b id="age" class="date" data="<?= $user["tanggal_lahir"]; ?>"></b>
                            </p>
                         </li>
                         <li class="list">
                            <i class="fa fa-city"></i>
                            <p>
-                              alamat <b><?= $user["alamat"] ?? "..."; ?></b>
+                              alamat <b><?= $user["alamat"] ? $user["alamat"] : "..."; ?></b>
                            </p>
                         </li>
                         <li class="list">
@@ -56,7 +56,7 @@
                      <div class="post d-flex flex-column">
                        <h1 class="post-title"><?= $post["title"]; ?></h1>
                        <p class="post-category"><?= $post["kategori"]; ?></p>
-                       <img src="<?= $post["gambar"] ?? 'https://source.unsplash.com/1200x400?'.$post["kategori"]; ?>" alt="" class="post-thumbnail">
+                       <img src="<?= $post["gambar"] ? url($post["gambar"]) : 'https://source.unsplash.com/1200x400?'.$post["kategori"]; ?>" alt="" class="post-thumbnail">
                        <p class="post-description">
                          <?= $post["deskripsi"]; ?>
                        </p>
@@ -82,13 +82,12 @@
 <script>
   $(document).ready(function(){
     let birthdate = $("#age").attr("data")
+    let joindate = $("#join").attr("data")
     if (birthdate === "") {
-      $("#age").html("null")
-      return false
-    } 
-    let date = new Date(birthdate)
+      $("#age").html("NaN Tahun")
+    }
     let now = new Date()
-    let diff = now - date
+    let diff = now - new Date(birthdate)
     let days = Math.floor(diff / (1000 * 60 * 60 * 24));
     let years = Math.floor(days / 365.25)
     
