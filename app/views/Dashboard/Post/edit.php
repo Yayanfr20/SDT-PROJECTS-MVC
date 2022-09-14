@@ -10,8 +10,9 @@
             <div class="content">
               <div class="row">
                 <div class="col">
-                  <form class="mb-3" action="<?= url('/post-project/upload'); ?>" method="post" enctype="multipart/form-data">
+                  <form class="mb-3" action="<?= url('/Posts/getEdit'); ?>" method="post" enctype="multipart/form-data">
                     <input type="hidden" value="<?=$user['name'];?>" name="author">
+                     <input type="hidden" value="<?=$post['id'];?>" name="id">
                       <div class="mb-3">
                         <label for="title" class="form-label">judul project</label>
                         <input value="<?= $post['title']; ?>" name="title" type="text" class="form-control" id="title">
