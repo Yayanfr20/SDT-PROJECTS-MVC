@@ -2,7 +2,7 @@
 class Dashboard extends Controller
 {
    public function index() {
-      $this->auth()->check();
+      //$this->auth()->check();
       
       $allPosts = $this->model("postingan_model")->getAllPost();
       $this->view('Dashboard/layout/header');
