@@ -11,6 +11,11 @@ class postingan_model{
     $this -> db -> bind('nm',$nm);
     return $this -> db -> resultSet();
   }
+  public function getPostById($id){
+    $this -> db -> query("SELECT * FROM {$this->tabel} WHERE id=:id");
+    $this -> db -> bind('id', $id);
+    return $this -> db -> resultSet();
+  }
   public function getAllPost(){
     $this -> db -> query("SELECT * FROM {$this->tabel}");
     return $this -> db -> resultSet();

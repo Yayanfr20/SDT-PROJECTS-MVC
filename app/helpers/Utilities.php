@@ -55,3 +55,12 @@ function method ($method = "GET", $code = 403) {
   
   return true;
 }
+
+/*
+ * @param $path (string)
+**/
+function redirect($path = "/") {
+  $dest = url($path);
+  header("location: $dest");
+  exit;
+}
