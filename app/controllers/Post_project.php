@@ -19,6 +19,7 @@ class Post_project extends Controller {
      method("POST", 401);
      $file = $_FILES["images"];
      $pathfile = Helper::uploadFile ($file, "/assets/static/");
+     var_dump($pathfile);
      if ($this -> model('postingan_model')->upload($_POST, $pathfile)){
        Flasher::setFlash("Berhasil ","Di Upload !","success");
      } else {

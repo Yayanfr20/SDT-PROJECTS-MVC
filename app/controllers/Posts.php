@@ -34,4 +34,17 @@ class Posts extends Controller {
    public function update($param=null){
      echo "<h1>UPDATE</hh1<p>parameter 1 : {$param}";
    }
+   public function getEdit(){
+     method("POST", 401);
+     $file = $_FILES["images"];
+     $pathfile = Helper::uploadFile ($file, "/assets/static/");
+     var_dump($pathfile);
+     if ($this -> model('postingan_model')->edit($_POST, $pathfile)){
+       Flasher::setFlash("Berhasil ","Di Upload !","success");
+     } else {
+       Flasher::setFlash("Gagal ","Di Upload !","error");
+     }
+     header("Location:".BASEURL."/post-project");
+     exit;
+   }
 }

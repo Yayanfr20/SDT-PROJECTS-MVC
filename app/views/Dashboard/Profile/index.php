@@ -56,7 +56,7 @@
                      <div class="post d-flex flex-column">
                        <h1 class="post-title"><?= $post["title"]; ?></h1>
                        <p class="post-category"><?= $post["kategori"]; ?></p>
-                       <img src="<?= $post["gambar"] ? url($post["gambar"]) : 'https://source.unsplash.com/1200x400?'.$post["kategori"]; ?>" alt="" class="post-thumbnail">
+                       <img src="<?= $post["images"] ? url($post["images"]) : 'https://source.unsplash.com/1200x400?'.$post["kategori"]; ?>" alt="" class="post-thumbnail">
                        <p class="post-description">
                          <?= $post["deskripsi"]; ?>
                        </p>

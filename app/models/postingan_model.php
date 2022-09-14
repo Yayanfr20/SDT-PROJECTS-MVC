@@ -20,7 +20,7 @@ class postingan_model{
     $this -> db -> query("SELECT * FROM {$this->tabel}");
     return $this -> db -> resultSet();
   }
-  public function upload ($data, $pathfile) {
+  public function upload($data, $pathfile) {
     $this -> db -> query("INSERT INTO {$this->tabel} (title, demo, source, deskripsi, kategori, images, date, author) VALUES (:title, :demo, :source, :deskripsi, :kategori, :images, :date,:atr)");
     $this -> db -> bind('title', $data['title']);
     $this -> db -> bind('demo', $data['demo']);
@@ -29,6 +29,20 @@ class postingan_model{
     $this -> db -> bind('kategori', $data['kategori']);
     $this -> db -> bind('images', $pathfile);
     $this -> db -> bind('atr', $data['author']);
+    $this -> db -> bind('date', now());
+    
+    return $this -> db -> rowCount() > 0 ? true : false;
+  }
+  public function edit($data, $pathfile) {
+    $this -> db -> query("UPDATE {$this->tabel} SET title=:title,demo=:demo,source=:source,deskripsi=:deskripsi,kategori=:kategori,images=:images, date=:date, author=:atr WHERE id=:id");
+    $this -> db -> bind('title', $data['title']);
+    $this -> db -> bind('demo', $data['demo']);
+    $this -> db -> bind('source', $data['source']);
+    $this -> db -> bind('deskripsi', $data['deskripsi']);
+    $this -> db -> bind('kategori', $data['kategori']);
+    $this -> db -> bind('images', $pathfile);
+    $this -> db -> bind('atr', $data['author']);
+    $this -> db -> bind('id', $data['id']);
     $this -> db -> bind('date', now());
     
     return $this -> db -> rowCount() > 0 ? true : false;
