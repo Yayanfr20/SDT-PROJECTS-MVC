@@ -221,8 +221,16 @@ main {
   text-transform: capitalize;
 }
 .content .post .post-category {
+  width: 10%;
   font-size: var(--fs-small);
-  color: rgba(0, 0, 0, .65);
+  background-color: rgba(0, 0, 0, .65);
+  color: var(--white);
+  padding: 2.5px 10%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .content .post .post-thumbnail {
   min-height: 20vh;

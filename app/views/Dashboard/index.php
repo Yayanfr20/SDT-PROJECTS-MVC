@@ -12,13 +12,22 @@
            <?php foreach($posts as $post): ?>
              <div class="col-12 col-md-6 col-lg-4 mb-2">
                <div class="post d-flex flex-column">
-                 <div class="d-flex align-self-start align-items-center gap-2">
-                   <img style="width: 2rem; height:2rem;" src="<?= $user["gambar"] ? url($user["gambar"]) : "https://github.com/fiandev.png"; ?>" alt="Avatar" class="rounded-circle">
-                   <small class=""><?= $user["name"]; ?></small>
+                 <div class="d-flex align-items-center justify-content-between">
+                   <div class="d-flex align-items-center gap-2">
+                     <img style="width: 2rem; height:2rem;" src="<?= $user["gambar"] ? url($user["gambar"]) : "https://github.com/fiandev.png"; ?>" alt="Avatar" class="rounded-circle">
+                     <small><?= $user["name"]; ?></small>
+                   </div>
+                   <div class="d-flex">
+                    <?php if($post["author"] === $user["name"]): ?>
+                      <a href="<?= url('/posts/'. $post['id'] .'/edit') ?>" data-bs-toggle="tooltip" title="post setting">
+                         <i class="fa fa-gear"></i>
+                      </a>
+                    <?php endif; ?>
+                   </div>
                  </div>
                  <h1 class="post-title"><?= $post["title"]; ?></h1>
                  <p class="post-category"><?= $post["kategori"]; ?></p>
-                 <img src="<?= $post["gambar"] ?? 'https://source.unsplash.com/1200x400?'.$post["kategori"]; ?>" alt="" class="post-thumbnail">
+                 <img src="<?= $post["images"] ? url($post["images"]) : 'https://source.unsplash.com/1200x400?'.$post["kategori"]; ?>" alt="" class="post-thumbnail">
                  <p class="post-description">
                    <?= $post["deskripsi"]; ?>
                  </p>
@@ -39,3 +48,10 @@
     </div>
   </div>
 </div>
+
+<script>
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+</script>
