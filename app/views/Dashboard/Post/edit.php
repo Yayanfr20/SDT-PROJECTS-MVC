@@ -11,7 +11,7 @@
               <div class="row">
                 <div class="col">
                   <form class="mb-3" action="<?= url('/posts/update'); ?>" method="post" enctype="multipart/form-data">
-                    <input type="hidden" value="<?=$user['name']; ?>" name="author">
+                    <input type="hidden" value="<?=$user['id']; ?>" name="author">
                      <input type="hidden" value="<?=$post['id'];?>" name="id">
                       <div class="mb-3">
                         <label for="title" class="form-label">judul project</label>
