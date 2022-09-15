@@ -4,13 +4,40 @@ class Profile extends Controller {
       $this->auth()->check();
       
       $user = $this->auth()->user();
-      // var_dump($user); exit;
       $posts = $this -> model("postingan_model")->getPost($user['name']);
+      
+      $categories = $this -> model("postingan_model")->getPostCategories($user['name']);
+      
+      $data = [
+        "categories" => [],
+        "percentages" => []
+      ];
+      $dump = [];
+      foreach ($categories as $category) {
+        $kategori = $category["kategori"];
+        array_push($dump, $kategori);
+        
+        if (in_array($kategori, $data["categories"])) {
+          $data["percentages"][$kategori] = $data["percentages"][$kategori] + 1;
+        } else {
+          array_push($data["categories"], $kategori);
+          
+          $data["percentages"][$kategori] = 1;
+        } 
+      }
+      
+      arsort($data["percentages"]);
+      foreach ($data["percentages"] as $key => $percentage) {
+        $data["percentages"][$key] = $percentage / count($categories) * 100;
+      }
+      
       $this -> view("Dashboard/layout/header");
       $this -> view("Dashboard/Profile/index", [
         "judul" => "profile ". ($user->name ?? "unknown"),
         "user" => $user,
-        "posts" => $posts
+        "posts" => $posts,
+        "categoryMode" => array_count_values($dump),
+        "percentages" => $data["percentages"]
       ]);
       $this -> view("Dashboard/layout/footer");
    }

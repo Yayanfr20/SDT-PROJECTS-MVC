@@ -20,6 +20,12 @@ class postingan_model{
     $this -> db -> query("SELECT * FROM {$this->tabel}");
     return $this -> db -> resultSet();
   }
+  public function getPostCategories($name) {
+    $this -> db -> query("SELECT kategori FROM {$this->tabel} WHERE author=:name");
+    $this -> db -> bind('name',$name);
+    
+    return $this -> db -> resultSet();
+  }
   public function upload($data, $pathfile) {
     $this -> db -> query("INSERT INTO {$this->tabel} (title, demo, source, deskripsi, kategori, images, date, author) VALUES (:title, :demo, :source, :deskripsi, :kategori, :images, :date,:atr)");
     $this -> db -> bind('title', $data['title']);

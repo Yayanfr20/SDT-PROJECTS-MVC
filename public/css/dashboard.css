@@ -270,6 +270,23 @@ main {
   background-color: rgba(0, 0, 0, .65);
   box-shadow: 5px 5px .8px #545d5f65;
 }
+.percentage-categories {
+  display: block;
+  margin: 5% 0;
+}
+.percentage-categories .progressbar {
+  display: flex;
+  border: solid 1px #000;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.percentage-categories .progressbar .progress {
+  background-color: skyblue;
+  padding: 0;
+  border-radius: 0px;
+}
+
 /* mobile */
 @media (max-width: 575.95px) {
   #container .content {

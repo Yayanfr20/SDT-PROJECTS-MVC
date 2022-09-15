@@ -5,7 +5,7 @@ class Post_project extends Controller {
       
       $user = $this->auth()->user();
       
-      $categories = ["php", "javascript", "css", "html", "golang", "reactjs", "python"];
+      $categories = ["php", "javascript", "css", "html", "golang", "python"];
       
       $this -> view("Dashboard/layout/header");
       $this -> view("Dashboard/Post/create", [
