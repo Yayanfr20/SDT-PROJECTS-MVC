@@ -11,14 +11,14 @@ class Posts extends Controller {
           $this -> update($param1);
           break;
         default:
-          redirect("/post-project");
+          redirect("/dashboard");
       }
    }
    
    public function edit($id = null){
      $post = $this->model("postingan_model")->getPostById($id)[0];
      
-     $categories = ["php", "javascript", "css", "html", "golang", "reactjs", "python"];
+     $categories = ["php", "javascript", "css", "html", "golang", "python"];
      
      $this->view('Dashboard/layout/header', [
        "judul" => "edit postingan"
@@ -31,10 +31,7 @@ class Posts extends Controller {
      $this->view('Dashboard/layout/footer');
    }
    
-   public function update($param=null){
-     echo "<h1>UPDATE</hh1<p>parameter 1 : {$param}";
-   }
-   public function getEdit(){
+   public function update(){
      method("POST", 401);
      $file = $_FILES["images"];
      $pathfile = Helper::uploadFile ($file, "/assets/static/");
@@ -44,7 +41,6 @@ class Posts extends Controller {
      } else {
        Flasher::setFlash("Gagal ","Di Upload !","error");
      }
-     header("Location:".BASEURL."/post-project");
-     exit;
+     redirect("/dashboard");
    }
 }

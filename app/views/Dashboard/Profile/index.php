@@ -47,6 +47,15 @@
                            </p>
                         </li>
                      </ul>
+                     
+                     <div class="percentage-categories">
+                       <small>Persentage</small>
+                       <div class="progressbar">
+                         <?php foreach($percentages as $category => $percentage): ?>
+                           <div data-bs-toggle="tooltip" title="<?= $category . ' : '. $categoryMode[$category]; ?>" category-name="<?= $category; ?>" style="width: <?= $percentage ?>%" class="progress"></div>
+                         <?php endforeach; ?>
+                       </div>
+                     </div>
                   </div>
                </div>
                
@@ -54,6 +63,19 @@
                  <?php foreach($posts as $post): ?>
                    <div class="col-12 col-md-6 col-lg-4 mb-2">
                      <div class="post d-flex flex-column">
+                       <div class="d-flex align-items-center justify-content-between">
+                         <div class="d-flex align-items-center gap-2">
+                           <img style="width: 2rem; height:2rem;" src="<?= $user["gambar"] ? url($user["gambar"]) : "https://github.com/fiandev.png"; ?>" alt="Avatar" class="rounded-circle">
+                           <small><?= $user["name"]; ?></small>
+                         </div>
+                         <div class="d-flex">
+                          <?php if($post["author"] === $user["name"]): ?>
+                            <a href="<?= url('/posts/'. $post['id'] .'/edit') ?>" data-bs-toggle="tooltip" title="post setting">
+                               <i class="fa fa-gear"></i>
+                            </a>
+                          <?php endif; ?>
+                         </div>
+                       </div>
                        <h1 class="post-title"><?= $post["title"]; ?></h1>
                        <p class="post-category"><?= $post["kategori"]; ?></p>
                        <img src="<?= $post["images"] ? url($post["images"]) : 'https://source.unsplash.com/1200x400?'.$post["kategori"]; ?>" alt="" class="post-thumbnail">
@@ -80,6 +102,20 @@
 </div>
 
 <script>
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+</script>
+<script>
+  const rule_categories = {
+    php: "#4F5D95",
+    javascript: "#f1e05a",
+    html: "#e44b23",
+    css: "#563d7c",
+    golang: "#51dcff",
+    python: "#3572A5"
+  }
   $(document).ready(function(){
     let birthdate = $("#age").attr("data")
     let joindate = $("#join").attr("data")
@@ -92,5 +128,13 @@
     let years = Math.floor(days / 365.25)
     
     $("#age").html(years)
+    
+    
+    
+    $(".percentage-categories .progress").each(function(){
+      let categoryName = $(this).attr("category-name")
+      let color = typeof rule_categories[categoryName] !== "undefined" ? rule_categories[categoryName] : "#000000"
+      $(this).css("background-color", color)
+    })
   })
 </script>
