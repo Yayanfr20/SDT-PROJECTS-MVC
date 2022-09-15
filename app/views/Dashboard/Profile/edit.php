@@ -19,7 +19,7 @@
                             <i class="fa fa-pencil"></i>
                           </span>
                         </label>
-                        <input value="" name="gambar" type="file" class="form-control d-none" id="gambar">
+                        <input value="<?=$user['gambar'];?>" name="gambar" type="file" class="form-control d-none" id="gambar">
                       </div>
                       <div class="mb-3">
                         <label for="name" class="form-label">name</label>

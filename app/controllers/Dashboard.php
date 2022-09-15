@@ -2,7 +2,7 @@
 class Dashboard extends Controller
 {
    public function index() {
-      //$this->auth()->check();
+      $this->auth()->check();
       
       $allPosts = $this->model("postingan_model")->getAllPost();
       $this->view('Dashboard/layout/header');
@@ -12,6 +12,7 @@ class Dashboard extends Controller
          "posts" => $allPosts
       ]);
       $this->view('Dashboard/layout/footer');
+      
    }
    public function logout() {
       unset($_SESSION['ryuxd']);
