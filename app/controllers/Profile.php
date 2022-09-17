@@ -1,12 +1,15 @@
 <?php
 class Profile extends Controller {
-   public function index() {
+   public function index($username = null) {
       $this->auth()->check();
       
-      $user = $this->auth()->user();
+      $user = empty($username) ? $this->auth()->user() : $this -> model("account_model")->getByUsername($username);
+      
+      if (!$user) abort(404);
+      
       $posts = $this -> model("postingan_model")->getPost($user['id']);
       
-      $categories = $this -> model("postingan_model")->getPostCategories($user['name']);
+      $categories = $this -> model("postingan_model")->getPostCategories($user["id"]);
       
       $data = [
         "categories" => [],
@@ -63,7 +66,7 @@ class Profile extends Controller {
      }else{
        Flasher::setFlash("Profile Gagal  ", "Di Update !", "error");
      }
-     header('Location:'.BASEURL.'/profile/change_name');
+     header('Location:'.BASEURL.'/profile/change-username');
      exit;
   }
  
@@ -77,12 +80,12 @@ class Profile extends Controller {
        Flasher::setFlash("Profile Gagal  ", "Di Update !", "error");
      }
     }
-     header('Location:'.BASEURL.'/profile/change_password');
+     header('Location:'.BASEURL.'/profile/change-password');
      exit;
   }
  
  
-   public function change_name() {
+   public function change_username() {
       $this->auth()->check();
       
       $user = $this->auth()->user();
@@ -90,7 +93,7 @@ class Profile extends Controller {
       $this -> view("Dashboard/layout/header", [
           "judul" => "change username"
       ]);
-      $this -> view("Dashboard/Profile/change-name", [
+      $this -> view("Dashboard/Profile/change-username", [
         "user" => $user
       ]);
       $this -> view("Dashboard/layout/footer");

@@ -1,13 +1,14 @@
 <?php
 class postingan_model{
   private $tabel = TB_POSTING;
+  private $multi_user = TB_MLTUSR;
   private $db;
   
   public function __construct(){
     $this -> db = new Database;
   }
   public function getPost($nm){
-    $this -> db -> query("SELECT * FROM {$this->tabel} WHERE author=:nm");
+    $this -> db -> query("SELECT * FROM {$this->tabel} INNER JOIN {$this->multi_user} ON {$this->multi_user}.id = {$this->tabel}.author WHERE author=:nm");
     $this -> db -> bind('nm',$nm);
     return $this -> db -> resultSet();
   }

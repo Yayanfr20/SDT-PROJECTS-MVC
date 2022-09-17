@@ -22,14 +22,17 @@ SET time_zone = "+00:00";
 -- Database: `sql6517581`
 --
 
--- --------------------------------------------------------
+-- Rollback table
+DROP TABLE IF EXISTS `multi_users`;
+DROP TABLE IF EXISTS `postingan`;
+DROP TABLE IF EXISTS `notifikasi`;
+DROP TABLE IF EXISTS `global_chat`;
+DROP TABLE IF EXISTS `private_chat`;
 
---
 -- Struktur dari tabel `multi_users`
---
 
 CREATE TABLE `multi_users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
@@ -42,19 +45,10 @@ CREATE TABLE `multi_users` (
   `create_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `multi_users`
---
-
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `postingan`
---
 
 CREATE TABLE `postingan` (
-  `id` int(11) NOT NULL,
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `demo` varchar(300) NOT NULL,
   `source` varchar(300) NOT NULL,
@@ -65,43 +59,27 @@ CREATE TABLE `postingan` (
   `kategori` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `postingan`
---
+-- Struktur dari tabel notifikasi
+CREATE TABLE `notifikasi` (
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `title` varchar(1000) NOT NULL,
+  `message` varchar(1000) NOT NULL
+) ENGINE=InnoDB default CHARSET=utf8mb4;
 
+-- Struktur dari tabel global_chat
+CREATE TABLE `global_chat` (
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `sender` int(11) NOT NULl,
+  `receiver` int(11) NOT NULl,
+  `replied` int(11) DEFAULT NULL,
+  `message` varchar(1000) NOT NULL
+) ENGINE=InnoDB default CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `testing`
---
-
-
---
--- Dumping data untuk tabel `testing`
---
-
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `multi_users`
---
-ALTER TABLE `multi_users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `multi_users`
---
-ALTER TABLE `multi_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- Struktur dari tabel private_chat
+CREATE TABLE `private_chat` (
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `sender` int(11) NOT NULl,
+  `receiver` int(11) NOT NULl,
+  `replied` int(11) DEFAULT NULL,
+  `message` varchar(1000) NOT NULL
+) ENGINE=InnoDB default CHARSET=utf8mb4;

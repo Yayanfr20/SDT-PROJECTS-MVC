@@ -12,19 +12,19 @@
                 <div class="col">
                   <form class="mb-3" action="<?= url('/profile/change'); ?>" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                      <label for="name" class="form-label">
+                      <label for="username" class="form-label">
                       username baru
                       </label>
-                      <input placeholder="masukkan username baru .." value="<?= $user["username"]; ?>" type="text" class="form-control" name="username">
+                      <input required placeholder="masukkan username baru .." value="<?= $user["username"]; ?>" type="text" class="form-control" name="username" id="username">
                       <div class="invalid-feedback">
-                        username tidak boleh terdiri dari simbol khusus dan angka
+                        username hanya boleh terdiri dari huruf kecil dan angka
                       </div>
                     </div>
                     <div class="mb-3">
                       <label for="password" class="form-label">
                         konfirmasi password
                       </label>
-                      <input placeholder="masukkan password .." value="" type="password" class="form-control" id="password" name="password">
+                      <input required placeholder="masukkan password .." value="" type="password" class="form-control" id="password" name="password">
                       <div class="invalid-feedback">
                         kata sandi salah
                       </div>
@@ -47,13 +47,15 @@
 
 
 <script>
-  $("#name").on("input", function() {
-    let exp = /(\d|\W|\s|\_)/gm;
+  $("#username").on("input", function() {
+    let exp = /(\_|\-|\W|[A-Z])/g;
     let value = $(this).val()
-    if (exp.test(value)) {
-      $(this, "form").addClass("is-invalid")
+    if (exp.test(value) && value !== "") {
+      $(this).addClass("is-invalid")
+      $("form").addClass("is-invalid")
     } else {
-      $(this, "form").removeClass("is-invalid")
+      $(this).removeClass("is-invalid")
+      $("form").removeClass("is-invalid")
     }
     console.log(value, exp.test(value))
   })

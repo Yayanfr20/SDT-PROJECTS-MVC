@@ -11,7 +11,7 @@
           <h1 class="fs-5">setting menu</h1>
           <ul class="d-flex gap-2 setting-menu flex-column align-items-center">
             <li>
-              <a class="d-flex justify-content-center align-items-center py-2 rounded" href="<?= url('/profile/change-name'); ?>">
+              <a class="d-flex justify-content-center align-items-center py-2 rounded" href="<?= url('/profile/change-username'); ?>">
                 change username 
               </a>
             </li>

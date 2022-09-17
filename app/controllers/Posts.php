@@ -16,7 +16,12 @@ class Posts extends Controller {
    }
    
    public function edit($id = null){
+     $this->auth()->check();
+     $user = $this->auth()->user();
+     
      $post = $this->model("postingan_model")->getPostById($id)[0];
+     
+     if ($user["id"] != $post["id"]) abort(403);
      
      $categories = ["php", "javascript", "css", "html", "golang", "python"];
      

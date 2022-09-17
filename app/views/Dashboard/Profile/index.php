@@ -48,6 +48,7 @@
                         </li>
                      </ul>
                      
+                    <?php if(count($posts) > 0): ?>
                      <div class="percentage-categories">
                        <small>Persentage</small>
                        <div class="progressbar">
@@ -56,6 +57,7 @@
                          <?php endforeach; ?>
                        </div>
                      </div>
+                   <?php endif; ?>
                   </div>
                </div>
                
@@ -64,12 +66,12 @@
                    <div class="col-12 col-md-6 col-lg-4 mb-2">
                      <div class="post d-flex flex-column">
                        <div class="d-flex align-items-center justify-content-between">
-                         <div class="d-flex align-items-center gap-2">
+                         <a href="<?= url('/profile/'. $post["username"]); ?>" class="d-flex align-items-center gap-2">
                            <img style="width: 2rem; height:2rem;" src="<?= $user["gambar"] ? url($user["gambar"]) : "https://github.com/fiandev.png"; ?>" alt="Avatar" class="rounded-circle">
                            <small><?= $user["name"]; ?></small>
-                         </div>
+                         </a>
                          <div class="d-flex">
-                          <?php if($post["author"] === $user['id']): ?>
+                          <?php if($post["author"] == $user['id']): ?>
                             <a href="<?= url('/posts/'. $post['id'] .'/edit') ?>" data-bs-toggle="tooltip" title="post setting">
                                <i class="fa fa-gear"></i>
                             </a>

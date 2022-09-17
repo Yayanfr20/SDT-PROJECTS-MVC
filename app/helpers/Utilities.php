@@ -6,8 +6,13 @@
 **/
 function url ($path = null) {
   if (!$path) return isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http" . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  
   $path = $path[0] !== "/" ? "/".$path : $path;
-  return BASEURL.$path;
+  
+  /* parse url */
+  $path = str_replace("_", "-", $path);
+  
+  return BASEURL . $path;
 }
 
 /*
@@ -51,7 +56,7 @@ function now ($option = "full") {
 function method ($method = "GET", $code = 403) {
   $request_method = strtoupper($_SERVER['REQUEST_METHOD']);
   $method = strtoupper($method);
-  if ($request_method !== $method) http_response_code($code);
+  if ($request_method !== $method) abort($code);
   
   return true;
 }
@@ -63,4 +68,27 @@ function redirect($path = "/") {
   $dest = url($path);
   header("location: $dest");
   exit;
+}
+/*
+ * @param $code (number)
+ * @param $message (string)
+**/
+function abort($code = 404) {
+  $ResponseCodes = [
+    403 => "Forbidden",
+    404 => "Not Found",
+    200 => "Success",
+    500 => "Internal Server Error"
+  ];
+  $message = $ResponseCodes[$code] ?? "Unknown Error";
+  $controllerName = "Error_page";
+  
+  require_once __DIR__.'/../../app/controllers/' . $controllerName . '.php';
+  $controller = new $controllerName;
+  
+  // Run controller & method, and send params
+  call_user_func_array([$controller, "index"], [
+    $code, $message
+  ]);
+ exit;
 }
