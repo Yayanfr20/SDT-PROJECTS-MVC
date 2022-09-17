@@ -69,7 +69,7 @@
                            <small><?= $user["name"]; ?></small>
                          </div>
                          <div class="d-flex">
-                          <?php if($post["author"] === $user["name"]): ?>
+                          <?php if($post["author"] === $user['id']): ?>
                             <a href="<?= url('/posts/'. $post['id'] .'/edit') ?>" data-bs-toggle="tooltip" title="post setting">
                                <i class="fa fa-gear"></i>
                             </a>
