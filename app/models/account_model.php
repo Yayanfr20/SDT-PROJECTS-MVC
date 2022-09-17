@@ -12,6 +12,12 @@ class account_model {
       $this -> db -> bind("id", $id);
       return $this -> db -> single()['id'];
    }
+   public function getByUsername($username) {
+      $this -> db -> query("SELECT * FROM {$this->tabel} WHERE username='$username'");
+      
+      return $this -> db -> resultSet()[0];
+   }
+   
    public function getInfo($id) {
       $this -> db -> query("SELECT * FROM {$this->tabel} WHERE id=:id");
       $this -> db -> bind("id", $id);

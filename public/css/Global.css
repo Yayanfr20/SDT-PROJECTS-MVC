@@ -23,9 +23,9 @@ input.is-invalid {
 
 @keyframes goyang {
   from {
-    transform: translateX(10%);
+    transform: translateY(0%);
   }
   to {
-    transform: translateX(-10%);
+    transform: translateY(2%);
   }
 }
