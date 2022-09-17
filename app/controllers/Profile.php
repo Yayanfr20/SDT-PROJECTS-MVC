@@ -4,7 +4,7 @@ class Profile extends Controller {
       $this->auth()->check();
       
       $user = $this->auth()->user();
-      $posts = $this -> model("postingan_model")->getPost($user['name']);
+      $posts = $this -> model("postingan_model")->getPost($user['id']);
       
       $categories = $this -> model("postingan_model")->getPostCategories($user['name']);
       
