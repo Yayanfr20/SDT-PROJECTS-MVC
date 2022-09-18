@@ -24,10 +24,18 @@ SET time_zone = "+00:00";
 
 -- Rollback table
 DROP TABLE IF EXISTS `multi_users`;
+DROP TABLE IF EXISTS `online_users`;
 DROP TABLE IF EXISTS `postingan`;
 DROP TABLE IF EXISTS `notifikasi`;
 DROP TABLE IF EXISTS `global_chat`;
 DROP TABLE IF EXISTS `private_chat`;
+
+-- Struktur dari tabel `online_users`
+CREATE TABLE `online_users` (
+  `id` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `uptime` TIMESTAMP NOT NULL DEFAULT(CURRENT_TIMESTAMP)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Struktur dari tabel `multi_users`
 
