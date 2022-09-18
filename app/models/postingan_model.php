@@ -54,4 +54,17 @@ class postingan_model{
     
     return $this -> db -> rowCount() > 0 ? true : false;
   }
+  
+  public function getDelete($id,$user){
+    $this -> db -> query("SELECT * FROM {$this->tabel} WHERE id=:id");
+    $this -> db -> bind('id',$id);
+    $aut = $this -> db -> single();
+    if($user == $aut['author']){
+      $this -> db -> query("DELETE FROM {$this->tabel} WHERE id=:id");
+      $this -> db -> bind('id',$id);
+      return $this -> db -> rowCount() > 0 ? true : false;
+    }else{
+    return  false;
+    }
+  }
 }
