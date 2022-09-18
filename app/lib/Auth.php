@@ -21,4 +21,11 @@ class Auth {
   public function user() {
     return $this->data;
   }
+  
+  public function logout() {
+    unset($_SESSION['ryuxd']);
+    session_destroy();
+    header("Location:" . BASEURL .'/Login');
+    exit;
+  }
 }
