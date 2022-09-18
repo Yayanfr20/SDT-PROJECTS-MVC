@@ -6,7 +6,7 @@ $path_request = $_SERVER["REQUEST_URI"];
 # kalau di deploy hapus /SDT-PROJECTS-MVC 👍😂
 
 $public = "/SDT-PROJECTS-MVC";
-$baseUrl = $protocol.$domain.$public;
+$baseUrl = $protocol.$domain.$public; //hapus $public ini bro dari $baseurl kalau di deploy ke hostingan
 
 define('BASEURL', $baseUrl);
 #define('DB_HOST', '127.0.0.1');

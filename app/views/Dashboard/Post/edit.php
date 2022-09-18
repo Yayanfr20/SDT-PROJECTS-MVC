@@ -13,7 +13,10 @@
                   <form class="mb-3" action="<?= url('/posts/update'); ?>" method="post" enctype="multipart/form-data">
                     <input type="hidden" value="<?=$user['id']; ?>" name="author">
                      <input type="hidden" value="<?=$post['id'];?>" name="id">
-                      <div class="mb-3">
+                    <a href="<?= url('/posts/delete/'.$post['id']); ?>" class="btn btn-danger my-3 float-end">
+                        hapus
+                      </a>
+                      <div class="mb-3 mt-2">
                         <label for="title" class="form-label">judul project</label>
                         <input value="<?= $post['title']; ?>" name="title" type="text" class="form-control" id="title">
                         <?= $post['title']; ?>
