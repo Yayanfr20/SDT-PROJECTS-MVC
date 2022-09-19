@@ -20,7 +20,7 @@
          </a>
       </li>
       <li>
-         <a href="#" class="nav-link text-white <?= route('/global-chat') ? 'active' : ''; ?>">
+         <a href="<?= url('global-chat'); ?>" class="nav-link text-white <?= route('/global-chat') ? 'active' : ''; ?>">
             <i class="fa fa-comment me-2"></i>
             Global chat
          </a>
@@ -35,12 +35,6 @@
          <a href="#" class="nav-link text-white <?= route('/teams') ? 'active' : ''; ?>">
             <i class="fa fa-users me-2"></i>
             teams
-         </a>
-      </li>
-      <li>
-         <a href="#" class="nav-link text-white <?= route('/notification') ? 'active' : ''; ?>">
-            <i class="fa fa-bell me-2"></i>
-            notification
          </a>
       </li>
       <li>

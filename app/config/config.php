@@ -17,3 +17,4 @@ define('DB_PASS', 'root');
 define('DB_NAME', 'sql6517581');
 define('TB_MLTUSR','multi_users');
 define('TB_POSTING','postingan');
+define('TB_ONLINE','online_users');
