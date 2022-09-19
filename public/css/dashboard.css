@@ -336,7 +336,99 @@ main {
     border-radius: 100%;
   }
 }
+.list-online .avatar {
+  width: 8rem;
+  height: 20vh;
+  max-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 5px;
+  overflow: hidden;
+  gap: 5%;
+  position: relative;
+}
+.list-online .avatar img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+.list-online .avatar p {
+  font-size: .6rem;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.list-online .avatar .info {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  background-color: #656e70;
+  position: absolute;
+  right: 1.6rem;
+  top: 4.8rem;
+}
+.chat {
+  max-width: 90%;
+  min-width: 30%;
+}
+.chat .chat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.chat .chat-content .message {
+  overflow: scroll;
+  background-color: #009bff;
+  color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 2% 3%;
+  width: 100%;
+  font-size: .8rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.chat .chat-content .author {
+  font-size: .9rem;
+  font-weight: 500;
+  font-family: 'Anek Telugu', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 2%;
+}
+.chat .chat-content .author .avatar {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 5px;
+}
+.chat .date {
+  font-size: .6rem;
+}
+.chat.self .content .author {
+  flex-direction: row-reverse;
+}
+.chat.self {
+  /* margin-left: calc(100% - 80%);*/
+  align-self: end;
+  justify-content: end;
+  align-items: end;
+  text-align: end;
+}
+.chat.other {
+  align-self: start;
+  justify-content: start;
+  align-items: start;
+  text-align: start;
+}
 
+.input-field textarea {
+  height: 5vh;
+  max-height: 20vh;
+}
+
+#chat-form button {
+  height: 40px;
+}
 /* tablet */
 @media (min-width: 576px) {
   #container {
